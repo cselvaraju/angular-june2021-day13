@@ -1,0 +1,41 @@
+<div class="container">
+  <h1>Blogs Component</h1>
+  <div class="row">
+    <div class="col">
+      <button (click)="getDataFromServer()">Get Data From Server</button>
+    </div>
+    <div class="col">
+      <label>
+        User ID:
+        <input type="text" #userid>
+      </label>
+      <br>
+      <label>
+        Title:
+        <input type="text" #blogtitle>
+      </label>
+      <br>
+      <label>
+        Body:
+        <input type="text" #blogbody>
+      </label>
+      <br>
+      <button (click)="addPost(userid.value, blogtitle.value, blogbody.value)">Add Blog Post</button>
+    </div>
+  </div>
+  <p>
+
+  </p>
+  <div>
+    <div *ngIf="!posts.length">
+      <span *ngIf="!isLoadingData">{{ outputMessage }}</span>
+      <img *ngIf="isLoadingData" src="assets/please-wait.gif" height="50" alt="Wait">
+    </div>
+    <div *ngIf="posts.length">
+      <p *ngFor="let post of posts">
+        {{ post.id }} <br>
+        {{ post.title }}
+      </p>
+    </div>
+  </div>
+</div>

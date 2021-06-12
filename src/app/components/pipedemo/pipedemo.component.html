@@ -1,0 +1,44 @@
+<div class="container">
+  <p>
+    Person Details: {{ person | json }}
+  </p>
+  <p>
+    Cost is {{ cost | currency:'INR' }}
+  </p>
+  <p>
+    Message is {{ message }} <br>
+    Uppercase: {{ message | uppercase }} <br>
+    Uppercase using function: {{ upperCase(message) }} <br>
+    Lowercase: {{ message | lowercase }}
+  </p>
+  <p>
+    Today is {{ today }} <br>
+    Short date {{ today | date:'shortDate'}} <br>
+    Medium date {{ today | date:'mediumDate'}} <br>
+    Long date {{ today | date:'longDate' }} <br>
+    Full date {{ today | date:'fullDate' }} <br>
+    <br>
+    Short time {{ today | date:'shortTime'}} <br>
+    Medium time {{ today | date:'mediumTime'}} <br>
+    Long time {{ today | date:'longTime' }} <br>
+    Full time {{ today | date:'fullTime' }} <br>
+    <br>
+    My format {{ today | date:'dd-MM-yyyy'}}
+  </p>
+  <p>
+    <label>
+      Enter some text:
+      <input type="text" [(ngModel)]="text"> <br>
+    </label>
+    <br>
+    <label>
+      Number of characters to truncate:
+      <input type="text" [(ngModel)]="numCharsToTruncate">
+    </label>
+    <br>
+    Original text: <span class="bold">{{ text }}</span> <br>
+    Reversed text: <span class="bold">{{ text | reversetext }}</span> <br>
+    Capitalized text: <span class="bold">{{ text | capitalizetext }}</span> <br>
+    Truncated text: <span class="bold">{{ text | truncatetext:numCharsToTruncate }}</span> <br>
+  </p>
+</div>
